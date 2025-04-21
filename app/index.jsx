@@ -1,11 +1,16 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, useColorScheme } from "react-native";
 import React from "react";
 import Logo from "../assets/img/book-light.png";
 import { Link } from "expo-router";
+import { Colors } from "../constants/colors";
 
 const Home = () => {
+  const colorScheme = useColorScheme();
+  // console.log("RootLayout colorScheme", colorScheme);
+  const theme = Colors[colorScheme] ?? Colors.light;
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <Image source={Logo} style={styles.img} />
       {/*<Text style={[styles.title, { color: "purple" }]}>The Number 1</Text>*/}
       <Text style={styles.title}>The Number 1</Text>
