@@ -1,28 +1,34 @@
-import { StyleSheet, Text, View, Image, useColorScheme } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import React from "react";
 import Logo from "../assets/img/book-light.png";
 import { Link } from "expo-router";
-import { Colors } from "../constants/colors";
+import ThemedView from "../components/ThemedView";
+import ThemedText from "../components/ThemedText";
+import ThemedLogo from "../components/ThemedLogo";
+import Spacer from "../components/Spacer";
 
 const Home = () => {
-  const colorScheme = useColorScheme();
-  // console.log("RootLayout colorScheme", colorScheme);
-  const theme = Colors[colorScheme] ?? Colors.light;
-
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Image source={Logo} style={styles.img} />
-      {/*<Text style={[styles.title, { color: "purple" }]}>The Number 1</Text>*/}
-      <Text style={styles.title}>The Number 1</Text>
-      <Text style={{ marginTop: 10, marginBottom: 30 }}>Reading List App</Text>
+    <ThemedView style={styles.container}>
+      <ThemedLogo />
+      <Spacer />
+
+      <ThemedText style={styles.title} title={true}>
+        The Number 1
+      </ThemedText>
+
+      <ThemedText style={{ marginTop: 10, marginBottom: 30 }}>
+        Reading List App
+      </ThemedText>
 
       <Link href="/about" style={styles.link}>
-        About Page
+        <ThemedText>About Page</ThemedText>
       </Link>
+
       <Link href="/contact" style={styles.link}>
-        Contact Page
+        <ThemedText>Contact Page</ThemedText>
       </Link>
-    </View>
+    </ThemedView>
   );
 };
 
@@ -30,21 +36,17 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#e0dfe8",
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  img: {
+    marginVertical: 20,
   },
   title: {
     fontWeight: "bold",
     fontSize: 18,
   },
-  img: {
-    marginVertical: 20,
-    width: 100,
-    height: 100,
-  },
-
   link: {
     marginVertical: 10,
     borderBottomWidth: 1,
