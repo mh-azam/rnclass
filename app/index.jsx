@@ -1,5 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import React from "react";
+import Logo from "../assets/img/book-light.png";
 import { Link } from "expo-router";
 import ThemedView from "../components/ThemedView";
 import ThemedText from "../components/ThemedText";
