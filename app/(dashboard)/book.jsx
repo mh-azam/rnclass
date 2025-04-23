@@ -10,6 +10,9 @@ const Books = () => {
       <ThemedText title={true} style={styles.heading}>
         Your Reading List
       </ThemedText>
+      <ThemedText title={true} style={styles.heading}>
+        Your Reading List
+      </ThemedText>
     </ThemedView>
   );
 };
