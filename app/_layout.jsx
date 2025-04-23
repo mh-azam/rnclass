@@ -1,14 +1,15 @@
-import { useColorScheme } from "react-native";
-import React, { use } from "react";
 import { Stack } from "expo-router";
 import { Colors } from "../constants/colors";
+import { useColorScheme } from "react-native";
 import { StatusBar } from "expo-status-bar";
-const RootLayout = () => {
+import { UserProvider } from "../contexts/UserContext";
+
+export default function RootLayout() {
   const colorScheme = useColorScheme();
   const theme = Colors[colorScheme] ?? Colors.light;
 
   return (
-    <>
+    <UserProvider>
       <StatusBar value="auto" />
       <Stack
         screenOptions={{
@@ -19,11 +20,10 @@ const RootLayout = () => {
         {/* Groups */}
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
+
         {/* Individual Screens */}
         <Stack.Screen name="index" options={{ title: "Home" }} />
       </Stack>
-    </>
+    </UserProvider>
   );
-};
-
-export default RootLayout;
+}
