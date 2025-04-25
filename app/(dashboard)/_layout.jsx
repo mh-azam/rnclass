@@ -39,7 +39,7 @@ export default function DashboardLayout() {
         <Tabs.Screen
           name="books"
           options={{
-            title: "Books",
+            title: "Book",
             tabBarIcon: ({ focused }) => (
               <Ionicons
                 size={24}

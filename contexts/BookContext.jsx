@@ -39,7 +39,9 @@ export function BooksProvider({ children }) {
           Permission.delete(Role.user(user.$id)),
         ]
       );
+      console.log(user);
     } catch (error) {
+      console.log(user);
       console.log(error.message);
     }
   }
